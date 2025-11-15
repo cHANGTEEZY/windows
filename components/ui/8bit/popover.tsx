@@ -43,7 +43,7 @@ function PopoverContent({
   return (
     <ShadcnPopoverContent
       className={cn(
-        "relative bg-card border-y-6 border-foreground dark:border-ring rounded-none mt-1",
+        "relative bg-card border-y-6 border-foreground dark:border-ring rounded-none mt-1 w-auto",
         font !== "normal" && "retro",
         className
       )}
