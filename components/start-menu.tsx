@@ -5,6 +5,7 @@ import windowsUserAvatar from "@/public/assets/windows-user.ico";
 import { menuItems } from "@/lib/constants/start-menu";
 import { Button } from "./ui/8bit/button";
 import { signOutAction } from "@/app/actions/auth";
+import { requireAuth } from "@/lib/session";
 
 const StartMenu = () => {
   return (
@@ -29,24 +30,23 @@ const StartMenu = () => {
 
 export default StartMenu;
 
-const PopOverBox = () => {
+const PopOverBox = async () => {
+  const session = await requireAuth();
+
   return (
     <section className="flex flex-col max-h-[clamp(60vh,70vh,80vh)]">
-      {/* Header */}
       <header className="flex items-center gap-[clamp(6px,1vw,12px)] px-4 py-6 bg-linear-to-b from-[#2778dd] via-[#335f9d] to-[#0f4c9c] text-white">
         <Image
           src={windowsUserAvatar}
           alt="windows avatar logo"
-          height={80}
-          width={80}
-          className="border-white border h-[clamp(55px,6vw,80px)] w-[clamp(55px,6vw,80px)]"
+          height={30}
+          width={30}
+          className="border-white border h-[clamp(2rem,6vw,3rem)] w-[clamp(2rem,6vw,3rem)]"
         />
-        <h1 className="text-[clamp(12px,2vw,20px)]">Administrator</h1>
+        <h1 className="text-[clamp(12px,2vw,20px)]">{session.user.name}</h1>
       </header>
 
-      {/* Body */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Left menu */}
         <div className="border-r border-[#95bdee] flex flex-col overflow-y-auto w-1/2">
           <ul className="p-[clamp(8px,2vw,20px)]">
             {menuItems.map((item) => (
@@ -65,7 +65,6 @@ const PopOverBox = () => {
             ))}
           </ul>
 
-          {/* All Programs Button */}
           <Button className="flex mx-auto mb-[clamp(12px,2vw,24px)] px-[clamp(16px,4vw,40px)] py-[clamp(6px,1.2vw,14px)] rounded-none bg-[#316ac5] border-[#315ac5] hover:bg-[#1665cb] cursor-pointer text-[clamp(10px,1.6vw,14px)]">
             All Programs
           </Button>

@@ -8,11 +8,7 @@ const HomePage = async () => {
     return redirect("/login");
   }
 
-  return (
-    <div>
-      <h1>WELCOME !!!</h1>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default HomePage;
