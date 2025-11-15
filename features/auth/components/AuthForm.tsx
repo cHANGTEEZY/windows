@@ -57,7 +57,7 @@ const AuthForm = ({ formTitle }: AuthFormProps) => {
           textColor="text-gray-400"
           inputType="text"
           inputPlaceholder="Email"
-          error={"Enter your email address."}
+          // error={"Enter your email address."}
         />
         <Button
           className="w-full font-bold text-md rounded-xs mt-10 bg-[#0F5EA3] cursor-pointer hover:bg-[#0d4e87]  "

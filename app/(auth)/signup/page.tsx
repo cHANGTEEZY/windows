@@ -1,24 +1,13 @@
-import { signUpAction } from "@/app/actions/auth";
-import CustomInput from "@/components/input";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
-import AuthForm from "@/features/auth/components/AuthForm";
+import SignupForm from "@/features/auth/components/SingupForm";
 
-const SignUpPage = () => {
+const SignUpPage = async () => {
   return (
     <section
-      className=" bg-no-repeat bg-cover bg--center h-screen -z-10 w-full"
+      className="flex items-center justify-center bg-no-repeat bg-cover bg-center h-screen -z-10 "
       style={{ backgroundImage: `url('/assets/microsoft_auth_bg.svg')` }}
     >
-      <form
-        action={signUpAction}
-        className="w-full h-full flex items-center justify-center"
-      >
-        <AuthForm />
+      <form className="w-full h-full flex items-center justify-center ">
+        <SignupForm />
       </form>
     </section>
   );
