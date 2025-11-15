@@ -20,7 +20,7 @@ const StartMenu = () => {
           Start
         </button>
       </PopoverTrigger>
-      <PopoverContent className="p-0 border-blue-500 shadow-none">
+      <PopoverContent className="p-0 border-blue-500 shadow-none w-[90vw] sm:w-[600px] md:w-[700px] max-h-[70vh]">
         <PopOverBox />
       </PopoverContent>
     </Popover>
@@ -31,63 +31,74 @@ export default StartMenu;
 
 const PopOverBox = () => {
   return (
-    <section>
-      <header className="flex items-center gap-2  bg-linear-to-b from-[#2778dd] via-[#335f9d] to-[#0f4c9c] text-white ">
+    <section className="flex flex-col max-h-[clamp(60vh,70vh,80vh)]">
+      {/* Header */}
+      <header className="flex items-center gap-[clamp(6px,1vw,12px)] px-4 py-6 bg-linear-to-b from-[#2778dd] via-[#335f9d] to-[#0f4c9c] text-white">
         <Image
           src={windowsUserAvatar}
           alt="windows avatar logo"
           height={80}
           width={80}
-          className="border-white border"
+          className="border-white border h-[clamp(55px,6vw,80px)] w-[clamp(55px,6vw,80px)]"
         />
-        <h1>Administrator</h1>
+        <h1 className="text-[clamp(12px,2vw,20px)]">Administrator</h1>
       </header>
-      <div className="flex">
-        <div className="border-r border-[#95bdee]">
-          <ul className="p-4">
+
+      {/* Body */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Left menu */}
+        <div className="border-r border-[#95bdee] flex flex-col overflow-y-auto w-1/2">
+          <ul className="p-[clamp(8px,2vw,20px)]">
             {menuItems.map((item) => (
               <li key={item.id}>
-                <button className="flex items-center gap-4 w-full p-2 rounded hover:bg-[#1665cb] cursor-pointer">
+                <button className="flex items-center hover:text-white gap-[clamp(6px,1.8vw,16px)] w-full p-[clamp(6px,1vw,12px)] rounded hover:bg-[#1665cb] cursor-pointer text-[clamp(10px,1.6vw,14px)]">
                   <Image
                     src={item.image}
                     alt={item.label}
                     height={45}
                     width={45}
+                    className="h-[clamp(30px,5vw,30px)] w-[clamp(30px,5vw,30px)]"
                   />
-                  {item.label}
+                  <span className="truncate">{item.label}</span>
                 </button>
               </li>
             ))}
           </ul>
-          <Button className="flex mx-auto mb-5 px-10 py-3.5 rounded-none bg-[#316ac5] border-[#315ac5] hover:bg-[#1665cb] cursor-pointer">
+
+          {/* All Programs Button */}
+          <Button className="flex mx-auto mb-[clamp(12px,2vw,24px)] px-[clamp(16px,4vw,40px)] py-[clamp(6px,1.2vw,14px)] rounded-none bg-[#316ac5] border-[#315ac5] hover:bg-[#1665cb] cursor-pointer text-[clamp(10px,1.6vw,14px)]">
             All Programs
           </Button>
         </div>
-        <div className="bg-[#cce1f9]">
-          <ul className="p-4">
+
+        <div className="bg-[#cce1f9] overflow-y-auto w-1/2">
+          <ul className="p-[clamp(8px,2vw,20px)]">
             {menuItems.map((item) => (
               <li key={item.id}>
-                <button className="flex items-center gap-4 w-full p-2 rounded hover:bg-[#1665cb] cursor-pointer">
+                <button className="flex items-center hover:text-white gap-[clamp(6px,1.8vw,10px)] w-full p-[clamp(6px,1vw,12px)] rounded hover:bg-[#1665cb] cursor-pointer text-[clamp(10px,1.6vw,14px)]">
                   <Image
                     src={item.image}
                     alt={item.label}
-                    height={45}
-                    width={45}
+                    height={30}
+                    width={30}
+                    className="h-[clamp(30px,5vw,30px)] w-[clamp(30px,5vw,30px)]"
                   />
-                  {item.label}
+                  <span className="truncate">{item.label}</span>
                 </button>
               </li>
             ))}
           </ul>
         </div>
       </div>
+
       <form action={signOutAction}>
-        <footer className="flex items-baseline w-full gap-6 justify-end pr-5">
-          <Button className="rounded-none bg-[#f31404] hover:bg-[#d11303] border-[#315ac5]  cursor-pointer">
+        <footer className="flex items-baseline bg-[#315ac5] w-full gap-[clamp(8px,2vw,24px)] justify-end px-3 sm:pr-5 py-3">
+          <Button className="rounded-none bg-[#f31404] hover:bg-[#d11303] border-[#315ac5] cursor-pointer text-[clamp(10px,1.6vw,14px)] px-[clamp(10px,2.5vw,20px)] py-[clamp(6px,1.2vw,12px)]">
             Shut Down
           </Button>
-          <Button className="rounded-none  bg-[#ca8012] hover:bg-[#b3770f] border-[#315ac5]  cursor-pointer">
-            Log Off
+
+          <Button className="rounded-none bg-[#ca8012] hover:bg-[#b3770f] border-[#315ac5] cursor-pointer text-[clamp(10px,1.6vw,14px)] px-[clamp(10px,2.5vw,20px)] py-[clamp(6px,1.2vw,12px)]">
+            Log Out
           </Button>
         </footer>
       </form>
