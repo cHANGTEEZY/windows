@@ -47,7 +47,7 @@ const PopOverBox = async () => {
       </header>
 
       <div className="flex flex-1 overflow-hidden">
-        <div className="border-r border-[#95bdee] flex flex-col overflow-y-auto w-1/2">
+        <div className="border- jr border-[#95bdee] flex flex-col overflow-y-auto w-1/2">
           <ul className="p-[clamp(8px,2vw,20px)]">
             {menuItems.map((item) => (
               <li key={item.id}>

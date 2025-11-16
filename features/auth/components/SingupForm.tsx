@@ -69,7 +69,18 @@ const SignupForm = () => {
         });
 
         if (result.success && result.otp) {
+          console.log("🔐 OTP Code for verification:", result.otp);
           setFormData({ ...formData, storedOtpCode: result.otp });
+          toast.success(`Your OTP code is: ${result.otp}`, {
+            description: "This code will expire in 10 minutes",
+            duration: 10000,
+            style: {
+              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              color: "white",
+              border: "1px solid #667eea",
+              fontSize: "16px",
+            },
+          });
         } else {
           return setFormErrors({
             ...formErrors,
