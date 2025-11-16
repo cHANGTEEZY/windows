@@ -18,7 +18,13 @@ const TabIcons = () => {
 
 export default TabIcons;
 
-const TabButon = ({ tabIcon, tooltip }) => {
+const TabButon = ({
+  tabIcon,
+  tooltip,
+}: {
+  tabIcon: string;
+  tooltip: string;
+}) => {
   return (
     <Tooltip>
       <TooltipTrigger asChild className="hover:bg-[#1a4cbf] p-2 h-full">
