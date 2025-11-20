@@ -27,6 +27,11 @@ const HomePage = async () => {
             <h1 className="text-2xl font-bold">
               Welcome, {session.user.name}!
             </h1>
+            <iframe
+              src="https://www.sushankgurung.com"
+              title="Sushank gurung portfolio website"
+              className="h-full w-full"
+            ></iframe>
           </Window>
         </div>
       </ContextMenuTrigger>

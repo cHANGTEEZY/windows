@@ -28,7 +28,7 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <main className="max-[2000px] overflow-hidden">{children}</main>
+        <main className=" overflow-hidden">{children}</main>
         <Toaster />
       </body>
     </html>
