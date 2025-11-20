@@ -12,7 +12,7 @@ const WindowControl = ({
   onXClick: () => void;
 }) => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center gap-4 p-4">
       <button className="cursor-pointer" onClick={onMinusClick}>
         <Minus className="hover:text-[rgba(255,255,255,0.7)] text-white" />
       </button>

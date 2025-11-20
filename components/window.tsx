@@ -17,8 +17,8 @@ const Window = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className="">
-      <header>
+    <div className="max-w-3xl w-full ">
+      <header className="flex justify-end ">
         <WindowControl
           onMinusClick={handleMinimize}
           onSquareClick={handleMaximize}

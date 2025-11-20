@@ -22,7 +22,7 @@ const HomePage = async () => {
   return (
     <ContextMenu>
       <ContextMenuTrigger>
-        <div className="w-screen h-screen">
+        <div className="w-screen h-screen z-20">
           <Window>
             <h1 className="text-2xl font-bold">
               Welcome, {session.user.name}!
@@ -30,7 +30,7 @@ const HomePage = async () => {
           </Window>
         </div>
       </ContextMenuTrigger>
-      <ContextMenuContent>
+      <ContextMenuContent className="z-10">
         <ContextMenuSub>
           <ContextMenuSubTrigger>View</ContextMenuSubTrigger>
           <ContextMenuSubContent>
