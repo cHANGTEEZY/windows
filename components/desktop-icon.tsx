@@ -5,17 +5,22 @@ const DesktopIcon = ({
   label,
   width,
   height,
+  onDoubleClick,
 }: {
   icon: string;
   label: string;
   width: number;
   height: number;
+  onDoubleClick: () => void;
 }) => {
   return (
-    <div>
+    <button
+      className="hover:bg-blue-500 px-4 cursor-pointer hover:text-white"
+      onDoubleClick={onDoubleClick}
+    >
       <Image src={icon} alt={label} width={width} height={height} />
       <p>{label}</p>
-    </div>
+    </button>
   );
 };
 

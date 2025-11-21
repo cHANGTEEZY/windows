@@ -1,5 +1,5 @@
-import { requireAuth } from "@/lib/session";
-import { redirect } from "next/navigation";
+"use client";
+
 import {
   ContextMenu,
   ContextMenuContent,
@@ -10,29 +10,53 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/components/ui/8bit/context-menu";
-import Window from "@/components/window";
+import WindowManager from "@/components/window/WindowManager";
+import DesktopIcon from "@/components/desktop-icon";
+import ThisPcIcon from "@/public/assets/thispc.ico";
+import { useState } from "react";
+import { useWindowStore } from "@/store";
 
-const HomePage = async () => {
-  const session = await requireAuth();
+const HomePage = () => {
+  const { openWindow } = useWindowStore();
 
-  if (!session) {
-    return redirect("/login");
-  }
+  const handleOpenThisPc = () => {
+    openWindow({
+      id: "this-pc",
+      title: "This PC",
+      type: "browser",
+      content: { url: "https://www.sushankgurung.com" },
+    });
+  };
+
+  const handleOpenThisPc2 = () => {
+    openWindow({
+      id: "this-pc-2",
+      title: "This PC 2",
+      type: "browser",
+      content: { url: "https://www.sushankgurung.com" },
+    });
+  };
 
   return (
     <ContextMenu>
       <ContextMenuTrigger>
-        <div className="w-screen h-screen z-20">
-          <Window>
-            <h1 className="text-2xl font-bold">
-              Welcome, {session.user.name}!
-            </h1>
-            <iframe
-              src="https://www.sushankgurung.com"
-              title="Sushank gurung portfolio website"
-              className="h-full w-full"
-            ></iframe>
-          </Window>
+        <div className="w-screen h-screen z-20 relative overflow-hidden">
+          <div className="absolute top-0 left-0 p-4 flex flex-col gap-4">
+            <DesktopIcon
+              label="This PC"
+              icon={ThisPcIcon}
+              height={60}
+              onDoubleClick={handleOpenThisPc}
+            />
+            <DesktopIcon
+              label="This PC 2"
+              icon={ThisPcIcon}
+              height={60}
+              onDoubleClick={handleOpenThisPc2}
+            />
+          </div>
+
+          <WindowManager />
         </div>
       </ContextMenuTrigger>
       <ContextMenuContent className="z-10">
