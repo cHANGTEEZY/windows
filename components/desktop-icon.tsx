@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 const DesktopIcon = ({
   icon,
@@ -7,10 +7,10 @@ const DesktopIcon = ({
   height,
   onDoubleClick,
 }: {
-  icon: string;
+  icon: string | StaticImageData;
   label: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   onDoubleClick: () => void;
 }) => {
   return (
