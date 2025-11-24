@@ -6,7 +6,6 @@ const WindowControl = ({
   onMinusClick,
   onSquareClick,
   onXClick,
-  windowName,
 }: {
   onMinusClick: () => void;
   onSquareClick: () => void;
