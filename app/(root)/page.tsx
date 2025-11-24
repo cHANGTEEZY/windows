@@ -1,5 +1,7 @@
 "use client";
 
+import { useWindowStore } from "@/store";
+
 import {
   ContextMenu,
   ContextMenuContent,
@@ -13,29 +15,37 @@ import {
 import WindowManager from "@/components/window/WindowManager";
 import DesktopIcon from "@/components/desktop-icon";
 import ThisPcIcon from "@/public/assets/thispc.ico";
-import { useState } from "react";
-import { useWindowStore } from "@/store";
+import NotepadIcon from "@/public/assets/notepad.png";
+import { useCallback } from "react";
 
 const HomePage = () => {
   const { openWindow } = useWindowStore();
 
-  const handleOpenThisPc = () => {
+  const handleOpenThisPc = useCallback(() => {
     openWindow({
       id: "this-pc",
       title: "This PC",
       type: "browser",
       content: { url: "https://www.sushankgurung.com" },
     });
-  };
+  }, [openWindow]);
 
-  const handleOpenThisPc2 = () => {
+  const handleOpenThisPc2 = useCallback(() => {
     openWindow({
       id: "this-pc-2",
       title: "This PC 2",
       type: "browser",
       content: { url: "https://www.sushankgurung.com" },
     });
-  };
+  }, [openWindow]);
+
+  const handleOpenNotePad = useCallback(() => {
+    openWindow({
+      id: "notepad",
+      title: "Notepad",
+      type: "notepad",
+    });
+  }, [openWindow]);
 
   return (
     <ContextMenu>
@@ -53,6 +63,12 @@ const HomePage = () => {
               icon={ThisPcIcon}
               height={60}
               onDoubleClick={handleOpenThisPc2}
+            />
+            <DesktopIcon
+              label="Notepad"
+              icon={NotepadIcon}
+              height={60}
+              onDoubleClick={handleOpenNotePad}
             />
           </div>
 

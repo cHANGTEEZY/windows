@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { useWindowStore } from "@/store";
 import Window from "./window";
 
@@ -35,6 +34,10 @@ const WindowManager = () => {
 
             {window.type === "folder" && (
               <div className="p-4 text-white">Folder Content Placeholder</div>
+            )}
+
+            {window.type === "notepad" && (
+              <div className="p-4 text-white">Notepad Content Placeholder</div>
             )}
           </Window>
         );
