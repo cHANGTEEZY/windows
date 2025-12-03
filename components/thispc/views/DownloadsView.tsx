@@ -5,7 +5,7 @@ import { FileArchive } from "lucide-react";
 const DownloadsView = () => {
   const items = [
     {
-      label: "installer.exe",
+      label: "shady_adobe_installer.exe",
       icon: <FileArchive size={48} className="text-orange-500" />,
     },
     {

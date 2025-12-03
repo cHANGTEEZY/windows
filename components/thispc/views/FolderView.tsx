@@ -14,9 +14,7 @@ const FolderView = ({ title, items = [] }: FolderViewProps) => {
       </div>
 
       {items.length === 0 ? (
-        <div className="text-gray-500 text-xs italic">
-          This folder is empty.
-        </div>
+        <div className="text-gray-500 text-xs italic">This Disk is empty.</div>
       ) : (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-4">
           {items.map((item, index) => (
