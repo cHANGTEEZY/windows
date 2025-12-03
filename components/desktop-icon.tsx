@@ -13,13 +13,22 @@ const DesktopIcon = ({
   height?: number;
   onDoubleClick: () => void;
 }) => {
+  const labelLines = label.split("/n");
+
   return (
     <button
-      className="hover:bg-blue-500 px-4 cursor-pointer hover:text-white"
+      className="hover:bg-blue-500 px-4 cursor-pointer hover:text-white text-start"
       onDoubleClick={onDoubleClick}
     >
       <Image src={icon} alt={label} width={width} height={height} />
-      <p>{label}</p>
+      <p className="inline-block">
+        {labelLines.map((line, index) => (
+          <span key={index}>
+            {line}
+            {index < labelLines.length - 1 && <br />}
+          </span>
+        ))}
+      </p>
     </button>
   );
 };

@@ -2,6 +2,8 @@
 
 import { useWindowStore } from "@/store";
 import Window from "./window";
+import Notepad from "../notepad";
+import ThisPc from "../thispc/ThisPc";
 
 const WindowManager = () => {
   const { windows, closeWindow, minimizeWindow, maximizeWindow, focusWindow } =
@@ -32,12 +34,20 @@ const WindowManager = () => {
               />
             )}
 
+            {window.type === "this-pc" && (
+              <div className="h-full text-white">
+                <ThisPc />
+              </div>
+            )}
+
             {window.type === "folder" && (
               <div className="p-4 text-white">Folder Content Placeholder</div>
             )}
 
             {window.type === "notepad" && (
-              <div className="p-4 text-white">Notepad Content Placeholder</div>
+              <div className="p-4 text-white">
+                <Notepad />
+              </div>
             )}
           </Window>
         );

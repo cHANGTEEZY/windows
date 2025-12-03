@@ -87,14 +87,13 @@ const WindowContent = ({
       style={style}
       onMouseDown={onFocus}
     >
-      {/* Header is the drag handle */}
       <header
         {...listeners}
         {...attributes}
         className="flex justify-between items-center bg-[#2d2d2d] p-2 select-none cursor-default"
       >
         <div className="text-white text-sm ml-2">{title || "Window"}</div>
-        {/* Stop propagation on controls to prevent drag start when clicking buttons */}
+
         <div
           onPointerDown={(e) => e.stopPropagation()}
           onMouseDown={(e) => e.stopPropagation()}

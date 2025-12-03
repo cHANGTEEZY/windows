@@ -3,7 +3,7 @@ import { create } from "zustand";
 export interface WindowState {
   id: string;
   title: string;
-  type: "browser" | "folder" | "notepad";
+  type: "browser" | "folder" | "notepad" | "this-pc";
   content?: any;
   isMinimized: boolean;
   isMaximized: boolean;

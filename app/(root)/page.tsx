@@ -16,24 +16,16 @@ import WindowManager from "@/components/window/WindowManager";
 import DesktopIcon from "@/components/desktop-icon";
 import ThisPcIcon from "@/public/assets/thispc.ico";
 import NotepadIcon from "@/public/assets/notepad.png";
+import Portfolio from "@/public/assets/portfolio.svg";
 import { useCallback } from "react";
 
 const HomePage = () => {
   const { openWindow } = useWindowStore();
 
-  const handleOpenThisPc = useCallback(() => {
-    openWindow({
-      id: "this-pc",
-      title: "This PC",
-      type: "browser",
-      content: { url: "https://www.sushankgurung.com" },
-    });
-  }, [openWindow]);
-
   const handleOpenThisPc2 = useCallback(() => {
     openWindow({
       id: "this-pc-2",
-      title: "This PC 2",
+      title: "Sushank Gurung Portfolio website",
       type: "browser",
       content: { url: "https://www.sushankgurung.com" },
     });
@@ -44,6 +36,14 @@ const HomePage = () => {
       id: "notepad",
       title: "Notepad",
       type: "notepad",
+    });
+  }, [openWindow]);
+
+  const handleOpenThisPc = useCallback(() => {
+    openWindow({
+      id: "this-pc",
+      title: "This PC",
+      type: "this-pc",
     });
   }, [openWindow]);
 
@@ -59,9 +59,10 @@ const HomePage = () => {
               onDoubleClick={handleOpenThisPc}
             />
             <DesktopIcon
-              label="This PC 2"
-              icon={ThisPcIcon}
-              height={60}
+              label="Portfolio"
+              icon={Portfolio}
+              height={80}
+              width={70}
               onDoubleClick={handleOpenThisPc2}
             />
             <DesktopIcon
