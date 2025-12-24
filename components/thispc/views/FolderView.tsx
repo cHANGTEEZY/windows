@@ -21,6 +21,7 @@ const FolderView = ({ title, items = [] }: FolderViewProps) => {
             <div
               key={index}
               className="flex flex-col items-center gap-1 p-2 hover:bg-[#E5F3FB] border border-transparent hover:border-[#7DA2CE] rounded-[2px] cursor-pointer group"
+              onClick={item.onClick}
             >
               {item.icon || (
                 <Folder size={48} className="text-[#F8D775] fill-[#F8D775]" />

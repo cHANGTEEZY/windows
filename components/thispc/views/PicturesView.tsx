@@ -7,6 +7,7 @@ const PicturesView = () => {
     {
       label: "Photo1.jpg",
       icon: <ImageIcon size={48} className="text-purple-500" />,
+      onClick: () => console.log("Photo1.jpg clicked"),
     },
     {
       label: "Photo2.png",
