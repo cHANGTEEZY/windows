@@ -3,7 +3,7 @@ import React from "react";
 
 interface FolderViewProps {
   title: string;
-  items?: { label: string; icon?: React.ReactNode }[];
+  items?: { label: string; icon?: React.ReactNode; onClick?: () => void }[];
 }
 
 const FolderView = ({ title, items = [] }: FolderViewProps) => {
