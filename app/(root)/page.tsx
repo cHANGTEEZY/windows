@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { useWindowStore } from "@/store";
+import LockScreen from "@/features/lockscreen/LockScreen";
 
 import {
   ContextMenu,
@@ -20,6 +22,7 @@ import Portfolio from "@/public/assets/portfolio.svg";
 import { useCallback } from "react";
 
 const HomePage = () => {
+  const [isUnlocked, setIsUnlocked] = useState(false);
   const { openWindow } = useWindowStore();
 
   const handleOpenThisPc2 = useCallback(() => {
@@ -46,6 +49,14 @@ const HomePage = () => {
       type: "this-pc",
     });
   }, [openWindow]);
+
+  if (!isUnlocked) {
+    return (
+      <div style={{ position: "fixed", inset: 0, zIndex: 9999 }}>
+        <LockScreen onUnlock={() => setIsUnlocked(true)} />
+      </div>
+    );
+  }
 
   return (
     <ContextMenu>

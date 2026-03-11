@@ -4,8 +4,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/8bit/popover";
 import windowsUserAvatar from "@/public/assets/windows-user.ico";
 import { menuItems } from "@/lib/constants/start-menu";
 import { Button } from "./ui/8bit/button";
-import { signOutAction } from "@/app/actions/auth";
-import { requireAuth } from "@/lib/session";
 
 const StartMenu = () => {
   return (
@@ -30,9 +28,7 @@ const StartMenu = () => {
 
 export default StartMenu;
 
-const PopOverBox = async () => {
-  const session = await requireAuth();
-
+const PopOverBox = () => {
   return (
     <section className="flex flex-col max-h-[clamp(60vh,70vh,80vh)]">
       <header className="flex items-center gap-[clamp(6px,1vw,12px)] px-4 py-6 bg-linear-to-b from-[#2778dd] via-[#335f9d] to-[#0f4c9c] text-white">
@@ -43,7 +39,7 @@ const PopOverBox = async () => {
           width={30}
           className="border-white border h-[clamp(2rem,6vw,3rem)] w-[clamp(2rem,6vw,3rem)]"
         />
-        <h1 className="text-[clamp(12px,2vw,20px)]">{session.user.name}</h1>
+        <h1 className="text-[clamp(12px,2vw,20px)]">Guest</h1>
       </header>
 
       <div className="flex flex-1 overflow-hidden">
@@ -90,17 +86,15 @@ const PopOverBox = async () => {
         </div>
       </div>
 
-      <form action={signOutAction}>
-        <footer className="flex items-baseline bg-[#315ac5] w-full gap-[clamp(8px,2vw,24px)] justify-end px-3 sm:pr-5 py-3">
-          <Button className="rounded-none bg-[#f31404] hover:bg-[#d11303] border-[#315ac5] cursor-pointer text-[clamp(10px,1.6vw,14px)] px-[clamp(10px,2.5vw,20px)] py-[clamp(6px,1.2vw,12px)]">
-            Shut Down
-          </Button>
+      <footer className="flex items-baseline bg-[#315ac5] w-full gap-[clamp(8px,2vw,24px)] justify-end px-3 sm:pr-5 py-3">
+        <Button className="rounded-none bg-[#f31404] hover:bg-[#d11303] border-[#315ac5] cursor-pointer text-[clamp(10px,1.6vw,14px)] px-[clamp(10px,2.5vw,20px)] py-[clamp(6px,1.2vw,12px)]">
+          Shut Down
+        </Button>
 
-          <Button className="rounded-none bg-[#ca8012] hover:bg-[#b3770f] border-[#315ac5] cursor-pointer text-[clamp(10px,1.6vw,14px)] px-[clamp(10px,2.5vw,20px)] py-[clamp(6px,1.2vw,12px)]">
-            Log Out
-          </Button>
-        </footer>
-      </form>
+        <Button className="rounded-none bg-[#ca8012] hover:bg-[#b3770f] border-[#315ac5] cursor-pointer text-[clamp(10px,1.6vw,14px)] px-[clamp(10px,2.5vw,20px)] py-[clamp(6px,1.2vw,12px)]">
+          Log Out
+        </Button>
+      </footer>
     </section>
   );
 };
